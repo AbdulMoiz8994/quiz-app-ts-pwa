@@ -8,19 +8,22 @@ import {QuizQues,Difficulty,TotalQuestion} from './Types/Type'
 function App() {
 
 let [data, setData]=useState<QuizQues[]>([])
-
+let [currentValue,setCurrentVlaue]=useState(0)
   useEffect(() =>{
     const data=async() =>{
-      const questions: QuizQues[]=await Servcies(TotalQuestion.FIVE,Difficulty.EASY)
-      console.log(questions);
-        setData(questions)
+      const question: QuizQues[]=await Servcies(TotalQuestion.FIVE,Difficulty.EASY)
+      console.log(question);
+        setData(question)
     }
     data()
-  })
+  },[])
+  console.log(data);
+  
   return (
     <div className="App">
+      <h1>hello</h1>
      <QuizCard  
-       questions={data[0].questions}
+       question={data[0].question}
        options={data[0].options}
      />
     </div>

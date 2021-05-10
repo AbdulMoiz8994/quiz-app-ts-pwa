@@ -7,8 +7,8 @@ export type RealQuestions={
     type: string
 }
 export type QuizQues={
-     questions: string
-     correct_answer?: string
+     question: string
+     correct_answer: string
      options: string[]
 
 }
@@ -22,4 +22,8 @@ export enum TotalQuestion{
     FIVE=5,
     TEN=10,
     TWENTY=20
+}
+export type Props={
+    question: string,
+    options: string[]
 }
