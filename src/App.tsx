@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react';
-// import logo from './logo.svg';
+import React, { useEffect,useState } from 'react';
 import './App.css';
-
 import {QuizCard} from './Components/index'
 import {Servcies} from './Services/index'
+import {QuizQues,Difficulty,TotalQuestion} from './Types/Type'
+
 
 function App() {
+
+let [data, setData]=useState<QuizQues[]>([])
+
   useEffect(() =>{
     const data=async() =>{
-      const questions=await Servcies(10,'easy')
+      const questions: QuizQues[]=await Servcies(TotalQuestion.FIVE,Difficulty.EASY)
       console.log(questions);
-      
+        setData(questions)
     }
     data()
   })
   return (
     <div className="App">
-     <h1>Hello World</h1>
-     <QuizCard/>
+     <QuizCard  
+       questions={data[0].questions}
+       options={data[0].options}
+     />
     </div>
   );
 }

@@ -8,7 +8,18 @@ export type RealQuestions={
 }
 export type QuizQues={
      questions: string
-     correct_answer: string
+     correct_answer?: string
      options: string[]
 
+}
+export enum Difficulty{
+    EASY='easy',
+    MEDIUM='medium',
+    HARD='hard'
+}
+
+export enum TotalQuestion{
+    FIVE=5,
+    TEN=10,
+    TWENTY=20
 }
