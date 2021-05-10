@@ -12,7 +12,7 @@ export type QuizQues={
      question: string
      correct_answer: string
      options: string[]
-     callback: (event: React.FormEvent<EventTarget>) => void
+    //  callback: (event: React.FormEvent<EventTarget>) => void
 
 }
 export enum Difficulty{
