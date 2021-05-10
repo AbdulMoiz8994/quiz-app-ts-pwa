@@ -1,3 +1,5 @@
+import React from "react"
+
 export type RealQuestions={
     category: string
     correct_answer: string
@@ -10,6 +12,7 @@ export type QuizQues={
      question: string
      correct_answer: string
      options: string[]
+     callback: (event: React.FormEvent<EventTarget>) => void
 
 }
 export enum Difficulty{
@@ -26,4 +29,5 @@ export enum TotalQuestion{
 export type Props={
     question: string,
     options: string[]
+    callback: (event: React.FormEvent<EventTarget>) => void
 }

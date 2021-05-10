@@ -2,13 +2,13 @@ import React from 'react'
 import {QuizQues,Props} from '../Types/Type'
 
 
-export const QuizCard:React.FC<Props> = ({question,options}) => {
+export const QuizCard:React.FC<Props> = ({question,options,callback}) => {
     console.log(question,options);
     
     return (
         <div>
          <h3>{question}</h3>
-         <form>
+         <form onSubmit={callback}>
              {options.map((values) =>{
                  return(
                 <div key={values}>
