@@ -3,7 +3,7 @@ import './App.css';
 import {QuizCard} from './Components/index'
 import {Servcies} from './Services/index'
 import {QuizQues,Difficulty,TotalQuestion} from './Types/Type'
-
+import {ResultCard} from './Components/ResultCard'
 
 function App() {
 
@@ -11,7 +11,7 @@ let [data, setData]=useState<QuizQues[]>([])
 let [currentValue,setCurrentVlaue]=useState(0)
 let [score,setScore]=useState(0)
 let [question, setQuestion]=useState(1)
-
+let [result, setResult]=useState(false)
   useEffect(() =>{
     const data=async() =>{
       const question: QuizQues[]=await Servcies(TotalQuestion.FIVE,Difficulty.EASY)
@@ -22,17 +22,29 @@ let [question, setQuestion]=useState(1)
   },[])
    
 // onChaangeFunc
-const onChangeFunc=(event: React.FormEvent<EventTarget>) =>{
+const onChangeFunc=(event: React.FormEvent<EventTarget>, userAns: string) =>{
+     const getUserAns:QuizQues=data[currentValue];
+     if(userAns === getUserAns.answer){
+       setScore(++score)
+     }
      event.preventDefault();
      if(currentValue !== data.length -1){
       setQuestion(++question)      
        setCurrentVlaue(++currentValue)
      }else{
-       setQuestion(0)
-       setCurrentVlaue(0)
+     setResult(true)
      }
 }
-
+if(result){
+  return( <ResultCard 
+   score={score}
+   data={data.length}
+   setQuestion={setQuestion}
+   setCurrentValue={setCurrentVlaue}
+   setScore={setScore}
+   setResult={setResult}
+ />)
+}
 
   if(!data.length){
     return <h2>Loading...</h2>
