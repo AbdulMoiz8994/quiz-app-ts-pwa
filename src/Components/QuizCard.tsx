@@ -1,6 +1,5 @@
 import React,{useRef, useState} from 'react'
-import {QuizQues,Props} from '../Types/Type'
-// import { useRef } from 'react'
+import {Props} from '../Types/Type'
 
 
 export const QuizCard:React.FC<Props> = ({question,options,callback}) => {
@@ -10,6 +9,7 @@ export const QuizCard:React.FC<Props> = ({question,options,callback}) => {
 const OnChangeFunc=(e: any) =>{
     setInput(e.target.value)
 }
+console.log(getInput);
 
     return (
         <div>
