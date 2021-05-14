@@ -7,13 +7,14 @@ const addFile=[
     'static/js/bundle.js',
     '/static/js/main.chunk.js',
     '/static/js/vendors~main.chunk.js',
-    '/favicon.js',
+    '/favicon.ico',
     '/index.html',
     '/logo192.png',
     '/logo512.png',
     '/manifest.json',
     '/serviceWorker.js',
-    "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple"
+    "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple",
+    '/robots.txt'
 ];
 
 this.addEventListener('activate',() =>{
