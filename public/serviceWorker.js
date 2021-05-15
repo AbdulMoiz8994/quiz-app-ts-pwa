@@ -13,8 +13,9 @@ const addFile=[
     '/logo512.png',
     '/manifest.json',
     '/serviceWorker.js',
-    "https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple",
-    '/robots.txt'
+    'https://opentdb.com/api.php?amount=5&difficulty=easy&type=multiple',
+    '/robots.txt',
+    '/firebase-messaging-sw.js'
 ];
 
 this.addEventListener('activate',() =>{
