@@ -4,7 +4,7 @@ import {QuizCard} from './Components/index'
 import {Servcies} from './Services/index'
 import {QuizQues,Difficulty,TotalQuestion} from './Types/Type'
 import {ResultCard} from './Components/ResultCard'
-
+import {getNotification} from './ServiceWorker/firebase-messaging'
 function App() {
 
 let [data, setData]=useState<QuizQues[]>([])
@@ -52,6 +52,9 @@ if(result){
   
   return (
     <div className="App">
+      
+          <button onClick={getNotification}>Click Here</button>
+
       <h1>Score {score} </h1>
       <h2>{question}/{data.length}</h2>
      <QuizCard  
@@ -59,6 +62,7 @@ if(result){
        options={data[currentValue].options}
        callback={onChangeFunc}
      />
+
     </div>
   );
 }
